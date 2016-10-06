@@ -14,25 +14,26 @@ data-terminals-available="{{terminals_available}}"
 {% block site %}
 
   <div id="ipython-main-app" class="container">
+    <div id="lab_link" class="pull-right" style="padding: 4px"><a href="{{ base_url }}lab" title='Try JupyterLab'><img src='{{static_url("base/images/jupyter_lab.png") }}' alt='Try JupyterLab' height="40px" width="200px"/></a></div>
     <div id="tab_content" class="tabbable">
       <ul id="tabs" class="nav nav-tabs">
-        <li class="active"><a href="#notebooks" data-toggle="tab">Files</a></li>
-        <li><a href="#running" data-toggle="tab">Running</a></li>
-        <li><a href="#clusters" data-toggle="tab" class="clusters_tab_link" >Clusters</a></li>
+        <li class="active"><a href="#notebooks" data-toggle="tab">Files 檔案</a></li>
+        <li><a href="#running" data-toggle="tab">Running 執行中</a></li>
+        <li><a href="#clusters" data-toggle="tab" class="clusters_tab_link" >Clusters 群聚</a></li>
       </ul>
       <div class="tab-content">
         <div id="notebooks" class="tab-pane active">
           <div id="notebook_toolbar" class="row">
             <div class="col-sm-8 no-padding">
               <div class="dynamic-instructions">
-                Select items to perform actions on them.
+                Select items to perform actions on them.請選擇項目執行動作
               </div>
               <div class="dynamic-buttons">
-                  <button title="Duplicate selected" class="duplicate-button btn btn-default btn-xs">Duplicate</button>
-                  <button title="Rename selected" class="rename-button btn btn-default btn-xs">Rename</button>
-                  <button title="Move selected" class="move-button btn btn-default btn-xs">Move</button>
-                  <button title="Download selected" class="download-button btn btn-default btn-xs">Download</button>
-                  <button title="Shutdown selected notebook(s)" class="shutdown-button btn btn-default btn-xs btn-warning">Shutdown</button>
+                  <button title="Duplicate selected" class="duplicate-button btn btn-default btn-xs">Duplicate 復制</button>
+                  <button title="Rename selected" class="rename-button btn btn-default btn-xs">Rename 重新命名檔案</button>
+                  <button title="Move selected" class="move-button btn btn-default btn-xs">Move 移動</button>
+                  <button title="Download selected" class="download-button btn btn-default btn-xs">Download 下載</button>
+                  <button title="Shutdown selected notebook(s)" class="shutdown-button btn btn-default btn-xs btn-warning">Shutdown 關閉核心</button>
                   <button title="Delete selected" class="delete-button btn btn-default btn-xs btn-danger"><i class="fa fa-trash"></i></button>
               </div>
             </div>
@@ -42,13 +43,13 @@ data-terminals-available="{{terminals_available}}"
                   <span id="notebook_list_info">
                   <span class="btn btn-xs btn-default btn-upload">
                   <input  title="Click to browse for a file to upload." type="file" name="datafile" class="fileinput" multiple='multiple'>
-                  Upload
+                  Upload 上傳
                   </span>
                   </span>
                 </form>
                 <div id="new-buttons" class="btn-group">
                   <button class="dropdown-toggle btn btn-default btn-xs" data-toggle="dropdown">
-                  <span>New</span>
+                  <span>New 開新執行環境</span>
                   <span class="caret"></span>
                   </button>
                   <ul id="new-menu" class="dropdown-menu">
@@ -96,7 +97,7 @@ data-terminals-available="{{terminals_available}}"
               </div>
               <div id="project_name">
                 <ul class="breadcrumb">
-                  <li><a href="{{breadcrumbs[0][0]}}"><i class="fa fa-folder"></i></a></li>
+                  <li><a href="{{breadcrumbs[0][0]}}"><i class="fa fa-home"></i></a></li>
                 {% for crumb in breadcrumbs[1:] %}
                   <li><a href="{{crumb[0]}}">{{crumb[1]}}</a></li>
                 {% endfor %}
@@ -104,13 +105,13 @@ data-terminals-available="{{terminals_available}}"
               </div>
               <div id="last_modified" class="pull-right sort_button">
                   <span class="btn btn-xs btn-default sort-action" id="last-modified">
-                      Last Modified
+                      Last Modified 最後修改時間
                       <i class="fa fa-arrow-up"></i>
                   </span>
               </div>
               <div id="sort_name" class="pull-right sort_button">
                   <span class="btn btn-xs btn-default sort-action" id="sort-name">
-                      Name
+                      Name 名稱
                       <i class="fa fa-arrow-up"></i>
                   </span>
               </div>
@@ -120,7 +121,7 @@ data-terminals-available="{{terminals_available}}"
         <div id="running" class="tab-pane">
           <div id="running_toolbar" class="row">
             <div class="col-sm-8 no-padding">
-              <span id="running_list_info">Currently running Jupyter processes</span>
+              <span id="running_list_info">Currently running Jupyter processes 目前執行中的jupyter程序</span>
             </div>
             <div class="col-sm-4 no-padding tree-buttons">
               <span id="running_buttons" class="pull-right">
@@ -140,7 +141,7 @@ data-terminals-available="{{terminals_available}}"
                   <div id="terminal_list">
                     <div id="terminal_list_header" class="row list_placeholder">
                     {% if terminals_available %}
-                      <div> There are no terminals running. </div>
+                      <div> There are no terminals running. 目前無執行中的終端機程序</div>
                     {% else %}
                       <div> Terminals are unavailable. </div>
                     {% endif %}
